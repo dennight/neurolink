@@ -1,0 +1,369 @@
+@import 'mixins'
+@import 'reset'
+@import 'colors'
+
+@include font-face(Roboto, "../fonts/Roboto/roboto-v20-latin_cyrillic-regular", 400, normal)
+
+body
+    font-family: 'Roboto', sans-serif
+    font-weight: 400
+    font-style: normal
+    background: $white
+
+// Header
+.brain-header
+    @include box(100%, 150px)
+    position: absolute
+    top: 0
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    z-index: 2
+    padding: 0 60px
+    @include large                
+        flex-direction: column
+        height: 75px
+    @include tablet        
+        padding: 0 30px
+
+@include large
+    .brain-header.is-open
+        height: 100vh
+        background-color: $aqua
+
+.brain-menu-header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    @include large
+        width: 100%
+        height: 75px
+        padding-top: 10px
+
+
+// Logo    
+.brain-logo
+    svg
+        @include box(57px, 36px)
+        path
+            fill: $white
+    &:hover
+        svg
+            path
+                fill: $aqua
+
+// Mobile Menu Button
+.brain-menu-button
+    color: $white
+    text-transform: uppercase
+    display: none
+    cursor: pointer
+    @include font-size (13, 20, normal)
+    @include large
+        display: inline-flex
+        @include font-size (16, 23, normal)
+    
+// Navigation
+.brain-nav-list
+    display: flex
+    flex-direction: column
+    @include large
+        display: none
+
+@include large
+    .brain-nav-list.is-open
+        display: flex
+        flex-direction: column
+        @include box(100%, 100vh)
+        align-items: center
+        justify-content: center
+        padding-top: 20px
+
+.brain-nav-link
+    color: $white
+    text-transform: uppercase
+    align-self: flex-end
+    @include font-size(13, 20, normal)
+    transition: all 0.3s ease
+    &:hover
+        color: $aqua
+    @include large
+        align-self: center
+        margin-bottom: 50px
+    @include mobile
+        margin-bottom: 25px
+
+// Hero
+.brain-block
+    @include box(100%, 660px)
+    background: url(../images/hero_bg.png), #B4BDCB
+    @include cover-background
+    padding: 0 60px 60px
+    position: relative
+    @include tablet
+        padding: 0 30px 30px
+
+.brain-hero-content
+    width: 100%
+    max-width: 430px
+    position: absolute
+    top: 200px
+    @include tablet
+        max-width: 330px
+    @include mobile
+        max-width: 250px
+    
+.brain-heading
+    @include font-size(60, 70, 1.8)
+    color: $white
+    font-weight: 400
+    @include tablet
+        @include font-size(40, 50, 1.7)
+
+.brain-hero-divider
+    margin-top: 140px
+    height: 2px
+    color: $white
+    border-style: solid
+    @include mobile
+        width: 100%
+         
+
+.brain-links-group
+    margin-top: 20px
+    display: flex
+    flex-direction: row
+    width: 100%
+    @include tablet
+        flex-direction: column
+        
+
+.brain-link
+    color: $white
+    text-transform: uppercase
+    @include font-size(19, 24, normal)
+    flex-grow: 1
+    svg
+        @include box(20px, 16px)
+        margin-left: 7px
+        path
+            fill: $white
+    &:hover
+        color: $aqua
+        svg
+            path
+                fill: $aqua
+    @include tablet
+        @include font-size(16, 21, normal)
+        margin-bottom: 10px
+
+// Container
+.brain-container
+    @include box(100%, 730px)
+    display: flex
+    flex-direction: row
+    justify-content: center
+    @include large
+        flex-direction: column
+        height: auto
+    
+
+
+// Items
+.brain-container-item
+    height: 100%
+    padding: 60px
+    &:nth-of-type(1)
+        background-color: $rose
+    &:nth-of-type(2)
+        background-color: $blue
+    &:nth-of-type(3)
+        background-color: $green
+    @include tablet
+        padding: 60px 30px
+
+// Item Title
+.brain-item-title
+    @include font-size (41, 48, normal)
+    color: $white
+    font-weight: 400
+    margin-bottom: 34px
+    @include tablet
+        @include font-size(31, 38, normal)
+
+// Item Divider
+.brain-item-divider
+    height: 2px
+    color: $white
+    border-style: solid
+    margin-bottom: 62px
+    @include large
+        max-width: 430px
+    @include tablet
+        max-width: 330px   
+   
+// Item Img
+.brain-item-img
+    width: auto
+    height: 360px
+    margin: 0 auto 30px
+          
+// Item Link
+.brain-item-link        
+    color: $white
+    text-transform: uppercase
+    @include font-size(20, 24, normal)    
+    svg
+        @include box(20px, 16px)
+        margin-left: 7px
+        path
+            fill: $white
+    &:hover
+        color: $aqua
+        svg
+            path
+                fill: $aqua    
+
+// Future block        
+.brain-block#brain-future
+    @include box(100%, 650px)
+    @include cover-background
+    background-image: url('../images/future_bg.png')
+    padding: 60px
+    position: relative
+    @include tablet
+        padding: 60px 30px
+    // Future Link
+    .brain-link
+        color: $white
+        text-transform: uppercase
+        @include font-size(20, 24, normal)
+        bottom: 60px
+        position: absolute   
+        svg
+            @include box(20px, 16px)
+            margin-left: 7px
+            path
+                fill: $white
+        &:hover
+            color: $aqua
+            svg
+                path
+                    fill: $aqua
+
+// Future Title
+.brain-title
+    @include font-size (39, 48, normal)
+    color: $white
+    font-weight: 400
+    margin-bottom: 34px
+    max-width: 430px
+    @include tablet
+        @include font-size(29, 38, normal)
+
+// Future Divider
+.brain-divider
+    height: 2px
+    color: $white
+    border-style: solid
+    max-width: 430px
+    margin-bottom: 30px
+    @include tablet
+        max-width: 330px
+
+// Future Text
+.brain-text
+    @include font-size(18, 24, normal)
+    color: $white
+    font-weight: 400
+    max-width: 340px
+    text-align: left
+
+// Footer
+.brain-footer
+    @include box(100%, 207px)
+    padding: 60px 60px
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    justify-content: space-between
+    @include tablet
+        flex-direction: column
+        padding: 60px 30px
+        height: auto
+        align-items: initial
+
+.brain-footer-item
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    color: $darkgray
+    text-transform: uppercase
+    @include font-size(13, 20, normal)
+    @include tablet
+        margin-bottom: 20px
+    &:nth-of-type(1)
+        flex-grow: 0.2
+        @include tablet
+            flex-grow: 1
+    &:nth-of-type(2)
+        flex-grow: 1.8
+        @include tablet
+            flex-grow: 1
+    &:nth-of-type(3)
+        flex-grow: 0.5
+        @include tablet
+            flex-grow: 1
+    &:nth-of-type(4)
+        flex-grow: 1
+        @include tablet
+            flex-grow: 1
+    a
+        cursor: pointer
+        transition: all 0.3s ease
+        @include tablet
+            margin-bottom: 10px
+        &:hover
+            color: $aqua
+    .brain-logo
+        transition: all 0.3s ease
+        svg
+            path
+                fill: $darkgray
+        &:hover
+            svg
+                path
+                    fill: $aqua
+    @include tablet
+        flex-grow: 1
+
+.brain-form
+    width: 100%
+    max-width: 427px
+    border-bottom: 1px solid $darkgray
+    min-height: 20px
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    margin-top: 26px
+    input[type="email"]
+        border: none
+        outline: none
+        width: 100%        
+    input[type="submit"]
+        border: none
+        width: 23px
+        height: 11.5px
+        background: url(../images/arrow.svg) no-repeat 50% 50%
+        cursor: pointer 
+        transition: all 0.3s ease    
+        &:hover
+            background: url(../images/arrow_blue.svg) no-repeat 50% 50%   
+
+::placeholder
+    color: $gray
+    @include font-size(14, 16, normal)
+    padding-left: 5.75px
